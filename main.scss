@@ -1,0 +1,152 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.6rem;
+}
+
+.drum {
+	height: 80rem;
+	width: 160rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		background-color: rgba(255, 0, 0, 0.5);
+		border: 1px solid #000;
+		height: 100%;
+		width: 70%;
+	}
+
+	&__box {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		&-title {
+			padding: 2rem;
+			font-size: 4rem;
+			font-family: 'Dancing Script', cursive;
+		}
+
+		&-description {
+			padding-bottom: 2rem;
+			font-size: 2.2rem;
+		}
+	}
+
+	&__image {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		// background-color: #000;
+		background-image: url('/images/drums_640.jpg');
+		background-size: cover;
+		background-position: center;
+		border-top: 1px solid #000;
+
+		&-btn {
+			position: absolute;
+			transition: background-color 0.3s, color 0.3s;
+			cursor: pointer;
+
+			&:hover,
+			&:focus {
+				background-color: #333;
+				outline: none;
+				color: #f0f0f0;
+			}
+		}
+	}
+
+	&__instruction {
+		width: 18%;
+		height: 100%;
+		padding: 3rem 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		background-color: #ddd;
+		border: 1px solid #000;
+		border-left: none;
+
+		&-title {
+			text-align: center;
+			padding: 3rem 0;
+		}
+	}
+
+	&__item {
+		margin-left: 1rem;
+	}
+}
+
+.btn {
+	padding: 0.5rem 1rem;
+	margin-right: 1rem;
+	border: 2px solid #000;
+	font-weight: bold;
+	font-size: 1.8rem;
+}
+
+.crash {
+	left: 20%;
+	top: 18%;
+}
+
+.ride {
+	right: 25%;
+	top: 18%;
+}
+
+.hh-closed {
+	right: 13%;
+	top: 40%;
+}
+
+.hh-open {
+	right: 23%;
+	top: 40%;
+}
+
+.mid-tom {
+	right: 37%;
+	top: 33%;
+}
+
+.high-tom {
+	left: 39%;
+	top: 33%;
+}
+
+.floor-tom {
+	left: 30%;
+	bottom: 40%;
+}
+
+.snare {
+	right: 30%;
+	bottom: 45%;
+}
+
+.kick {
+	left: 50%;
+	bottom: 20%;
+}
