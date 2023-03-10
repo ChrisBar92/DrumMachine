@@ -38,6 +38,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 .drum__box-title {
   padding: 2rem;
@@ -62,7 +63,7 @@ body {
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
 }
-.drum__image-btn:hover, .drum__image-btn:focus {
+.drum__image-btn:focus {
   background-color: #333;
   outline: none;
   color: #f0f0f0;
@@ -83,6 +84,8 @@ body {
   padding: 3rem 0;
 }
 .drum__item {
+  display: flex;
+  align-items: center;
   margin-left: 1rem;
 }
 
@@ -92,6 +95,7 @@ body {
   border: 2px solid #000;
   font-weight: bold;
   font-size: 1.8rem;
+  order: -1;
 }
 
 .crash {
@@ -104,7 +108,7 @@ body {
   top: 18%;
 }
 
-.hh-closed {
+.hh-close {
   right: 13%;
   top: 40%;
 }
