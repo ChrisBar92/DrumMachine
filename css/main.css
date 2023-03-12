@@ -63,11 +63,6 @@ body {
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
 }
-.drum__image-btn:focus {
-  background-color: #333;
-  outline: none;
-  color: #f0f0f0;
-}
 .drum__instruction {
   width: 18%;
   height: 100%;
@@ -108,12 +103,12 @@ body {
   top: 18%;
 }
 
-.hh-close {
+.hihat-closed {
   right: 13%;
   top: 40%;
 }
 
-.hh-open {
+.hihat-opened {
   right: 23%;
   top: 40%;
 }
@@ -141,4 +136,10 @@ body {
 .kick {
   left: 50%;
   bottom: 20%;
+}
+
+.activeButton {
+  background-color: #333;
+  outline: none;
+  color: #f0f0f0;
 }/*# sourceMappingURL=main.css.map */

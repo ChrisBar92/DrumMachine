@@ -1,7 +1,6 @@
-const drumImageBtn = document.querySelectorAll('.drum__image-btn')
+const drumImageBtn = document.getElementsByClassName('drum__image-btn')
 const drumInstruction = document.querySelector('.drum__instruction')
-const drumImage = document.getElementsByClassName('.drum__image')
-let audio
+const drumImage = document.querySelector('.drum__image')
 
 const soundsObj = [
 	{
@@ -9,80 +8,58 @@ const soundsObj = [
 		keyTrigger: 'q',
 		keyCode: 81,
 		url: './sounds/crash.wav',
-		classNames: 'drum__image-btn btn crash',
 	},
 	{
 		name: 'Ride',
 		keyTrigger: 'w',
 		keyCode: 87,
 		url: './sounds/ride.wav',
-		classNames: 'drum__image-btn btn ride',
 	},
 	{
-		name: 'Hi Hat Closed',
+		name: 'HiHat-Closed',
 		keyTrigger: 'e',
 		keyCode: 69,
 		url: './sounds/hh-close.wav',
-		classNames: 'drum__image-btn btn hh-close',
 	},
 	{
-		name: 'Hi Hat Open',
+		name: 'HiHat-Opened',
 		keyTrigger: 'r',
 		keyCode: 82,
 		url: './sounds/hh-open.wav',
-		classNames: 'drum__image-btn btn hh-open',
 	},
 	{
-		name: 'Mid Tom',
+		name: 'Mid-Tom',
 		keyTrigger: 't',
 		keyCode: 84,
 		url: './sounds/mid-tom.mp3',
-		classNames: 'drum__image-btn btn mid-tom',
 	},
 	{
-		name: 'High Tom',
+		name: 'High-Tom',
 		keyTrigger: 'a',
 		keyCode: 65,
 		url: './sounds/high-tom.mp3',
-		classNames: 'drum__image-btn btn high-tom',
 	},
 	{
-		name: 'Floor Tom',
+		name: 'Floor-Tom',
 		keyTrigger: 's',
 		keyCode: 83,
 		url: './sounds/floor-tom.wav',
-		classNames: 'drum__image-btn btn floor-tom',
 	},
 	{
 		name: 'Snare',
 		keyTrigger: 'd',
 		keyCode: 68,
 		url: './sounds/snare.wav',
-		classNames: 'drum__image-btn btn snare',
 	},
 	{
 		name: 'Kick',
 		keyTrigger: 'f',
 		keyCode: 70,
 		url: './sounds/kick.wav',
-		classNames: 'drum__image-btn btn kick',
 	},
 ]
 
-// const drumSound = e => {
-
-// 	console.log(e.target)
-// 	const audio = document.createElement('audio')
-// 	audio.setAttribute('src', './sounds/snare.wav')
-// 	drumImageBtn.forEach(item => {
-// 		item.appendChild(audio)
-// 	})
-// 	audio.play()
-// }
-
-// console.log(soundsObj.forEach(item => console.log(item)))
-
-const showInstruction = () => {
+const createInstruction = () => {
 	for (let i = 0; i < soundsObj.length; i++) {
 		const p = document.createElement('p')
 		p.classList.add('drum__item')
@@ -94,51 +71,50 @@ const showInstruction = () => {
 		drumInstruction.appendChild(p)
 	}
 }
-showInstruction()
+createInstruction()
 
-const addAudio = e => {
-    for (let i = 0; i < soundsObj.length; i++){
+const createButtons = () => {
+	for (let i = 0; i < soundsObj.length; i++) {
+		const button = document.createElement('button')
+		button.classList.add('drum__image-btn', 'btn', soundsObj[i].name.toLowerCase())
+		button.textContent = soundsObj[i].keyTrigger.toUpperCase()
+		const audio = document.createElement('audio')
+		audio.setAttribute('src', soundsObj[i].url)
+		button.appendChild(audio)
+		drumImage.appendChild(button)
+	}
+}
+createButtons()
 
-        let audio = document.createElement('audio')
-        audio.setAttribute('src', soundsObj[i].url)
-        e.target.appendChild(audio)
-    }
-	// let i = 0
-	// i++
-	// audio.play()
-	console.log(e.target)
+let newDrumImageBtn = Array.from(drumImageBtn)
+
+function playSound(e) {
+	if (!e.target.lastChild) return // for invalid press
+	e.target.lastChild.currentTime = 0 // continue playing from the beginning
+	e.target.lastChild.play()
+
+	e.target.classList.add('activeButton')
+	setTimeout(() => {
+		e.target.classList.remove('activeButton')
+	}, 80)
 }
 
-const playSound = () => {}
-
-drumImageBtn.forEach(item => {
-	item.addEventListener('click', addAudio)
+newDrumImageBtn.forEach(button => {
+	button.addEventListener('click', playSound)
 })
 
-function showLetter(event) {
-	let keyt = event.key
-	console.log(keyt)
-	//     console.log(soundsObj[2].key)
-	soundsObj.forEach(item => {
-		if (item.keyTrigger === keyt) {
-			console.log('oki')
-		} else {
-			console.log('nieoki')
+window.addEventListener('keyup', e => {
+	let letter = e.key
+
+	soundsObj.filter(function (el) {
+		if (el.keyTrigger !== letter) {
+			console.log(el)
+			let audio = document.createElement('audio')
+			audio.setAttribute('src', el.url)
+			audio.currentTime = 0
+			audio.play()
+			return audio
+			console.log(audio)
 		}
 	})
-}
-
-window.addEventListener('keyup', showLetter)
-
-// const [name, second] = soundsObj
-// console.log(name)
-// const okok = () => {
-// 	soundsObj.forEach(item => {
-// 		const { keyTrigger } = item
-// 		newArr = [keyTrigger]
-// 		console.log(newArr)
-// 	})
-// 	const otherArr = newArr.push('jkot')
-// 	console.log(otherArr)
-// }
-// okok()
+})
