@@ -99,22 +99,33 @@ function playSound(e) {
 	}, 80)
 }
 
-newDrumImageBtn.forEach(button => {
-	button.addEventListener('click', playSound)
-})
-
-window.addEventListener('keyup', e => {
+const pressLetter = e => {
 	let letter = e.key
 
 	soundsObj.filter(function (el) {
-		if (el.keyTrigger !== letter) {
-			console.log(el)
+		if (el.keyTrigger === letter) {
 			let audio = document.createElement('audio')
 			audio.setAttribute('src', el.url)
 			audio.currentTime = 0
 			audio.play()
-			return audio
-			console.log(audio)
+
+			newDrumImageBtn.filter(button => {
+				if (button.textContent.toLowerCase() === el.keyTrigger) {
+					button.classList.add('activeButton')
+					setTimeout(() => {
+						button.classList.remove('activeButton')
+					}, 80)
+				} else {
+					return
+				}
+			})
 		}
 	})
+}
+
+// event listeners
+newDrumImageBtn.forEach(button => {
+	button.addEventListener('click', playSound)
 })
+
+window.addEventListener('keyup', pressLetter)
