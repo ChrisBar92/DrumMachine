@@ -89,7 +89,6 @@ createButtons()
 let newDrumImageBtn = Array.from(drumImageBtn)
 
 function playSound(e) {
-	if (!e.target.lastChild) return // for invalid press
 	e.target.lastChild.currentTime = 0 // continue playing from the beginning
 	e.target.lastChild.play()
 

@@ -29,23 +29,23 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(255, 0, 0, 0.5);
-  border: 1px solid #000;
   height: 100%;
   width: 100%;
+  background-color: rgba(255, 0, 0, 0.5);
+  border: 1px solid #000;
 }
 .drum__box {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   height: 20rem;
   width: 100%;
+  text-align: center;
 }
 .drum__box-title {
-  padding: 2rem;
   margin-top: 1rem;
+  padding: 2rem;
   font-size: 3.2rem;
   font-family: "Dancing Script", cursive;
 }
@@ -68,22 +68,21 @@ body {
   cursor: pointer;
 }
 .drum__instruction {
-  padding: 3rem 1.5rem;
-  flex-direction: column;
-  background-color: #ddd;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  padding: 1rem;
   flex-wrap: wrap;
-  width: 100%;
   height: 30rem;
+  width: 100%;
+  padding: 1rem;
+  background-color: #ddd;
   border: 1px solid #000;
   border-top: none;
 }
 .drum__instruction-title {
   display: none;
-  text-align: center;
   padding: 3rem 0;
+  text-align: center;
 }
 .drum__item {
   display: flex;
@@ -98,7 +97,7 @@ body {
   margin-right: 1rem;
   border: 2px solid #000;
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1rem;
   order: -1;
 }
 
@@ -113,13 +112,13 @@ body {
 }
 
 .hihat-closed {
-  right: 10%;
-  top: 37%;
+  right: 11%;
+  top: 38%;
 }
 
 .hihat-opened {
   right: -3%;
-  top: 36%;
+  top: 45%;
 }
 
 .mid-tom {
@@ -153,48 +152,64 @@ body {
   color: #f0f0f0;
 }
 
-@media (min-width: 450px) and (max-width: 575px) {
+@media (max-width: 360px) {
+  .drum {
+    height: 80rem;
+    width: 100%;
+    margin: 0;
+  }
+  .drum__box {
+    height: 20rem;
+  }
+  .drum__box-title {
+    padding: 1rem;
+    font-size: 2.5rem;
+  }
+  .drum__box-description {
+    padding: 0.5rem;
+    font-size: 1.4rem;
+  }
+  .drum__image {
+    height: 30rem;
+  }
+  .drum__image-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  .hihat-closed {
+    right: 8%;
+  }
+  .hihat-opened {
+    right: -2%;
+    top: 47%;
+  }
+  .snare {
+    right: 20%;
+  }
+}
+@media (min-width: 450px) {
   .crash {
     left: 15%;
-    top: 18%;
   }
   .ride {
     right: 16%;
-    top: 18%;
   }
   .hihat-closed {
     right: 20%;
-    top: 37%;
   }
   .hihat-opened {
     right: 7%;
-    top: 45%;
-  }
-  .mid-tom {
-    right: 30%;
-    top: 35%;
-  }
-  .high-tom {
-    left: 31%;
-    top: 33%;
-  }
-  .floor-tom {
-    left: 23%;
-    bottom: 40%;
   }
   .snare {
     right: 27%;
-    bottom: 45%;
-  }
-  .kick {
-    left: 50%;
-    bottom: 20%;
   }
 }
-@media (min-width: 576px) and (max-width: 767px) {
+@media (min-width: 576px) {
+  .drum__image-btn {
+    font-size: 1.4rem;
+  }
   .crash {
     left: 20%;
-    top: 18%;
   }
   .ride {
     right: 21%;
@@ -210,92 +225,70 @@ body {
   }
   .mid-tom {
     right: 40%;
-    top: 35%;
   }
   .high-tom {
     left: 40%;
-    top: 33%;
   }
   .floor-tom {
     left: 30%;
-    bottom: 40%;
   }
   .snare {
     right: 30%;
-    bottom: 45%;
-  }
-  .kick {
-    left: 50%;
-    bottom: 20%;
   }
 }
 @media (min-width: 768px) {
   body {
-    align-items: center;
     height: 100vh;
+    align-items: center;
   }
   .drum {
-    height: 80%;
-    width: 98%;
-    max-width: 120rem;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    height: 80rem;
+    width: 98%;
+    max-width: 120rem;
+    margin: 0;
   }
   .drum__container {
-    width: 80%;
+    width: 75%;
+  }
+  .drum__box {
+    height: 25rem;
   }
   .drum__box-title {
-    padding: 2rem;
     font-size: 4rem;
-    font-family: "Dancing Script", cursive;
   }
   .drum__box-description {
-    padding: 2rem;
     font-size: 2.2rem;
   }
   .drum__image {
-    height: 100%;
-  }
-  .drum__image-btn {
-    position: absolute;
-    transition: background-color 0.3s, color 0.3s;
-    cursor: pointer;
+    height: 55rem;
   }
   .drum__instruction {
-    width: 20%;
     height: 100%;
+    width: 25%;
     padding: 3rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #ddd;
-    border: 1px solid #000;
+    border-top: 1px solid #000;
     border-left: none;
   }
   .drum__instruction-title {
     display: block;
-    text-align: center;
-    padding: 3rem 0;
     font-size: 2.2rem;
   }
   .drum__item {
-    display: flex;
-    align-items: center;
+    width: 100%;
     margin-left: 0;
     font-size: 1.6rem;
-    width: 100%;
   }
   .crash {
     left: 20%;
-    top: 18%;
   }
   .ride {
     right: 25%;
-    top: 18%;
   }
   .hihat-closed {
-    right: 13%;
+    right: 18%;
     top: 40%;
   }
   .hihat-opened {
@@ -308,30 +301,25 @@ body {
   }
   .high-tom {
     left: 39%;
-    top: 33%;
   }
   .floor-tom {
     left: 24%;
-    bottom: 40%;
   }
   .snare {
     right: 25%;
-    bottom: 45%;
   }
-  .kick {
-    left: 50%;
-    bottom: 20%;
+}
+@media (min-width: 850px) {
+  .hihat-closed {
+    right: 22%;
+    top: 40%;
+  }
+  .hihat-opened {
+    right: 10%;
+    top: 45%;
   }
 }
 @media (min-width: 992px) {
-  .crash {
-    left: 20%;
-    top: 18%;
-  }
-  .ride {
-    right: 25%;
-    top: 18%;
-  }
   .hihat-closed {
     right: 27%;
     top: 40%;
@@ -340,24 +328,10 @@ body {
     right: 14%;
     top: 45%;
   }
-  .mid-tom {
-    right: 37%;
-    top: 33%;
-  }
-  .high-tom {
-    left: 39%;
-    top: 33%;
-  }
   .floor-tom {
     left: 32%;
-    bottom: 40%;
   }
   .snare {
     right: 31%;
-    bottom: 45%;
-  }
-  .kick {
-    left: 50%;
-    bottom: 20%;
   }
 }/*# sourceMappingURL=main.css.map */
