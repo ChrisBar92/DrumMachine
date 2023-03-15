@@ -72,7 +72,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   flex-wrap: wrap;
-  height: 30rem;
+  height: 29rem;
   width: 100%;
   padding: 1rem;
   background-color: #ddd;
@@ -152,7 +152,7 @@ body {
   color: #f0f0f0;
 }
 
-@media (max-width: 360px) {
+@media (max-width: 350px) {
   .drum {
     height: 80rem;
     width: 100%;
@@ -160,13 +160,15 @@ body {
   }
   .drum__box {
     height: 20rem;
+    justify-content: space-between;
   }
   .drum__box-title {
-    padding: 1rem;
+    margin-top: 5rem;
+    padding: 2rem 1rem;
     font-size: 2.5rem;
   }
   .drum__box-description {
-    padding: 0.5rem;
+    padding: 1rem 0.5rem;
     font-size: 1.4rem;
   }
   .drum__image {
